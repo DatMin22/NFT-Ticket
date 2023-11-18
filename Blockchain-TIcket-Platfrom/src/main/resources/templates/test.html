@@ -3,22 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
     <script src="Json/SolanaJS.js"></script>
     <title>Document</title>
 </head>
-<body>
+<body ng-app="myApp" ng-controller="solanaCtrl">
     <button onclick="connect()">show</button>
-    <button onclick="get_address_solana()">get_address_solana</button>
+    <button onclick="get_address_solana()">get address solana</button>
+    <button onclick="get_balance()">Get Banlance wallet 2</button>
     <button onclick="send_sol()">Send sol</button>
     <!-- test nft -->
     <input type="file" id="fileInput">
     <button onclick="create_detach()">Create detach NFT</button>
     <!-- <button onclick="createAndSignNFTTransaction()">Mint NFT</button> -->
-    <button onclick="read_all_nfts()">read_all_nft</button>
-    <button onclick="read_nft('GadLzLtirpVbirdoxDYPinXA8ZeoFpr2B6GbuvNa1GWj')">read_nft</button>
+    <button ng-click="read_all_nfts2()">Read All Nft</button>
+    <button onclick="read_nft('GadLzLtirpVbirdoxDYPinXA8ZeoFpr2B6GbuvNa1GWj')">Read Nft</button>
     <button onclick="transaction_history()">Read History Transaction</button>
     <button onclick="transfer_nft()">Transfer NFT</button>
+    
+  <div>
+    asd{{listsdsdsd[0].name}}
+    <table> 
+        
+        <tbody>
+            <tr ng-repeat="item in listsdsdsd">
+                <td>{{item.name}}</td>
+                <img ng-src="item.image_uri" alt="">
+            </tr>
+        </tbody>
+    </table>
+  </div>
 </body>
 
 </html>

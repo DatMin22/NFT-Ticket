@@ -1,3 +1,25 @@
+var app = angular.module('myApp', []);
+
+app.controller('solanaCtrl', function($scope, $http) {
+  $scope.listsdsdsd = [];
+  $scope.read_all_nfts2 = async () =>{
+      var myHeaders = new Headers();
+    myHeaders.append("x-api-key", X_Api_Key);
+    
+    var requestOptions = {
+      method: 'GET',
+      headers: myHeaders,
+      redirect: 'follow'
+    };
+    
+    fetch("https://api.shyft.to/sol/v1/nft/read_all?network=devnet&address="+address_solana, requestOptions)
+      .then(async response => response.json())
+      .then(async result => $scope.listsdsdsd=result.result)
+      .then(async result => console.log($scope.listsdsdsd))
+      .catch(async error => console.log('error', error));
+    
+  }
+});
 var X_Api_Key = 'Pkt9qKkFbur5lZwo';
 var address_solana ='3weVG5Sxmr9QcRcVfritDHv9ee8DTxYkS3y9uTKfF7xU';
 var to_address = '8FvpJCjwou77Yj84a6YRqj65PJRuouAAhJw6v3BJ2u7U';
@@ -21,6 +43,22 @@ const get_address_solana = async () =>{
     await connect();
     address_solana = await window.phantom.solana.publicKey.toBase58();
     console.log(address_solana);
+}
+
+const get_balance = async () =>{
+  var myHeaders = new Headers();
+myHeaders.append("x-api-key", X_Api_Key);
+
+var requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+  redirect: 'follow'
+};
+
+fetch("https://api.shyft.to/sol/v1/wallet/balance?network=devnet&wallet="+to_address2, requestOptions)
+  .then(response => response.json())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
 }
 
 const signeTransaction = async (result) =>{
@@ -161,7 +199,7 @@ var requestOptions = {
 };
 
 fetch("https://api.shyft.to/sol/v1/nft/read_all?network=devnet&address="+address_solana, requestOptions)
-  .then(response => response.json())
+  .then(response => {response.json()})
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
 }
@@ -230,3 +268,4 @@ fetch("https://api.shyft.to/sol/v1/nft/transfer_detach", requestOptions)
       await connect();
     
 })();
+
