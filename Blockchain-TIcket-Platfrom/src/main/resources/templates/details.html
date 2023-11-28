@@ -5,9 +5,10 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="Json/SolanaJS.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
+    <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
     <title>Cyborg - Awesome HTML5 Template</title>
 
     <!-- Bootstrap core CSS -->
@@ -29,7 +30,7 @@ https://templatemo.com/tm-579-cyborg-gaming
 -->
   </head>
 
-<body>
+<body ng-app="myApp" ng-controller="detailCtrl">
 
   <!-- ***** Preloader Start ***** -->
   <div id="js-preloader" class="js-preloader">
@@ -55,21 +56,12 @@ https://templatemo.com/tm-579-cyborg-gaming
                         <img src="assets/images/logo.png" alt="">
                     </a>
                     <!-- ***** Logo End ***** -->
-                    <!-- ***** Search End ***** -->
-                    <div class="search-input">
-                      <form id="search" action="#">
-                        <input type="text" placeholder="Type Something" id='searchText' name="searchKeyword" onkeypress="handle" />
-                        <i class="fa fa-search"></i>
-                      </form>
-                    </div>
-                    <!-- ***** Search End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="browse.html">Browse</a></li>
                         <li><a href="details.html" class="active">Details</a></li>
-                        <li><a href="streams.html">Streams</a></li>
-                        <li><a href="profile.html">Profile <img src="assets/images/profile-header.jpg" alt=""></a></li>
+                        <li><a href="profile.html">{{balance}} <img src="assets/images/profile-header.jpg" alt=""></a></li>
                     </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>
@@ -86,170 +78,187 @@ https://templatemo.com/tm-579-cyborg-gaming
     <div class="row">
       <div class="col-lg-12">
         <div class="page-content">
-
-          <!-- ***** Featured Start ***** -->
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="feature-banner header-text">
-                <div class="row">
-                  <div class="col-lg-4">
-                    <img src="assets/images/feature-left.jpg" alt="" style="border-radius: 23px;">
-                  </div>
-                  <div class="col-lg-8">
-                    <div class="thumb">
-                      <img src="assets/images/feature-right.jpg" alt="" style="border-radius: 23px;">
-                      <a href="https://www.youtube.com/watch?v=r1b03uKWk_M" target="_blank"><i class="fa fa-play"></i></a>
-                    </div>
-                  </div>
+          <div class="card my-3 bg-dark text-white ">
+            <div class="card-header text-center h1 fw-bolder text-decoration-underline">
+              Send solana
+            </div>
+            <div class="card-body ">
+              <div class="row justify-content-center my-2">
+                <div class="col-2 align-self-center">
+                  To:
                 </div>
+                  <input id="toad" ng-model="tosend" class="col-8 rounded-3 form-control w-50" type="text">
+              </div>
+              <div class="row justify-content-center my-2">
+                <div class="col-2 align-self-center">
+                  Amount:
+                </div>
+                  <input id="amountsend" class="col-8 rounded-3 form-control w-50" type="text">
               </div>
             </div>
-          </div>
-          <!-- ***** Featured End ***** -->
-
-          <!-- ***** Details Start ***** -->
-          <div class="game-details">
-            <div class="row">
-              <div class="col-lg-12">
-                <h2>Fortnite Details</h2>
-              </div>
-              <div class="col-lg-12">
-                <div class="content">
-                  <div class="row">
-                    <div class="col-lg-6">
-                      <div class="left-info">
-                        <div class="left">
-                          <h4>Fortnite</h4>
-                          <span>Sandbox</span>
-                        </div>
-                        <ul>
-                          <li><i class="fa fa-star"></i> 4.8</li>
-                          <li><i class="fa fa-download"></i> 2.3M</li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="col-lg-6">
-                      <div class="right-info">
-                        <ul>
-                          <li><i class="fa fa-star"></i> 4.8</li>
-                          <li><i class="fa fa-download"></i> 2.3M</li>
-                          <li><i class="fa fa-server"></i> 36GB</li>
-                          <li><i class="fa fa-gamepad"></i> Action</li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="col-lg-4">
-                      <img src="assets/images/details-01.jpg" alt="" style="border-radius: 23px; margin-bottom: 30px;">
-                    </div>
-                    <div class="col-lg-4">
-                      <img src="assets/images/details-02.jpg" alt="" style="border-radius: 23px; margin-bottom: 30px;">
-                    </div>
-                    <div class="col-lg-4">
-                      <img src="assets/images/details-03.jpg" alt="" style="border-radius: 23px; margin-bottom: 30px;">
-                    </div>
-                    <div class="col-lg-12">
-                      <p>Cyborg Gaming is free HTML CSS website template provided by TemplateMo. This is Bootstrap v5.2.0 layout. You can make a <a href="https://paypal.me/templatemo" target="_blank">small contribution via PayPal</a> to info [at] templatemo.com and thank you for supporting. If you want to get the PSD source files, please contact us. Lorem ipsum dolor sit consectetur es dispic dipiscingei elit, sed doers eiusmod lisum hored tempor.</p>
-                    </div>
-                    <div class="col-lg-12">
-                      <div class="main-border-button">
-                        <a href="#">Download Fortnite Now!</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div class="card-footer text-center">
+              <button class="btn btn-primary fw-bolder rounded-4 " ng-click="send_sol()">Send</button>
             </div>
           </div>
-          <!-- ***** Details End ***** -->
 
-          <!-- ***** Other Start ***** -->
-          <div class="other-games">
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="heading-section">
-                  <h4><em>Other Related</em> Games</h4>
+          <div class="card my-3 bg-dark text-white ">
+            <div class="card-header text-center h1 fw-bolder text-decoration-underline">
+              Create NFT
+            </div>
+              <div class="card-body ">
+              <div class="row justify-content-center my-2">
+                <div class="col-2 align-self-center">
+                  Name:
                 </div>
+                  <input ng-model="nft.name" class="col-8 rounded-3 form-control w-50" type="text">
               </div>
-              <div class="col-lg-6">
-                <div class="item">
-                  <img src="assets/images/game-01.jpg" alt="" class="templatemo-item">
-                  <h4>Dota 2</h4><span>Sandbox</span>
-                  <ul>
-                    <li><i class="fa fa-star"></i> 4.8</li>
-                    <li><i class="fa fa-download"></i> 2.3M</li>
-                  </ul>
+              <div class="row justify-content-center my-2">
+                <div class="col-2 align-self-center">
+                  Symbol:
                 </div>
+                  <input ng-model="nft.symbol" class="col-8 rounded-3 form-control w-50" type="text">
               </div>
-              <div class="col-lg-6">
-                <div class="item">
-                  <img src="assets/images/game-02.jpg" alt="" class="templatemo-item">
-                  <h4>Dota 2</h4><span>Sandbox</span>
-                  <ul>
-                    <li><i class="fa fa-star"></i> 4.8</li>
-                    <li><i class="fa fa-download"></i> 2.3M</li>
-                  </ul>
+              <div class="row justify-content-center my-2">
+                <div class="col-2 align-self-center">
+                  description:
                 </div>
+                  <input ng-model="nft.description" class="col-8 rounded-3 form-control w-50" type="text">
               </div>
-              <div class="col-lg-6">
-                <div class="item">
-                  <img src="assets/images/game-03.jpg" alt="" class="templatemo-item">
-                  <h4>Dota 2</h4><span>Sandbox</span>
-                  <ul>
-                    <li><i class="fa fa-star"></i> 4.8</li>
-                    <li><i class="fa fa-download"></i> 2.3M</li>
-                  </ul>
+              <div class="row justify-content-center my-2">
+                <div class="col-2 align-self-center">
+                  Max supply:
                 </div>
+                  <input ng-model="nft.max_supply" class="col-8 rounded-3 form-control w-50" type="text">
               </div>
-              <div class="col-lg-6">
-                <div class="item">
-                  <img src="assets/images/game-02.jpg" alt="" class="templatemo-item">
-                  <h4>Dota 2</h4><span>Sandbox</span>
-                  <ul>
-                    <li><i class="fa fa-star"></i> 4.8</li>
-                    <li><i class="fa fa-download"></i> 2.3M</li>
-                  </ul>
+              <div class="row justify-content-center my-2">
+                <div class="col-2 align-self-center">
+                  Royalty:
                 </div>
+                  <input ng-model="nft.royalty" class="col-8 rounded-3 form-control w-50" type="text">
               </div>
-              <div class="col-lg-6">
-                <div class="item">
-                  <img src="assets/images/game-03.jpg" alt="" class="templatemo-item">
-                  <h4>Dota 2</h4><span>Sandbox</span>
-                  <ul>
-                    <li><i class="fa fa-star"></i> 4.8</li>
-                    <li><i class="fa fa-download"></i> 2.3M</li>
-                  </ul>
+              <div class="row justify-content-center my-2">
+                <div class="col-2 align-self-center">
+                  File:
                 </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="item">
-                  <img src="assets/images/game-01.jpg" alt="" class="templatemo-item">
-                  <h4>Dota 2</h4><span>Sandbox</span>
-                  <ul>
-                    <li><i class="fa fa-star"></i> 4.8</li>
-                    <li><i class="fa fa-download"></i> 2.3M</li>
-                  </ul>
-                </div>
+                  <input id="fileinput" class="col-8 rounded-3 form-control-file w-50" type="file">
               </div>
             </div>
+            <div class="card-footer text-center">
+              <button class="btn btn-primary fw-bolder rounded-4 " ng-click="create_nft()">Create</button>
+            </div>
           </div>
-          <!-- ***** Other End ***** -->
+
+          <div class="card my-3 bg-dark text-white ">
+            <div class="card-header text-center h1 fw-bolder text-decoration-underline">
+              Update NFT
+            </div>
+              <div class="card-body ">
+              <div class="row justify-content-center my-2">
+                <div class="col-2 align-self-center">
+                  Token Address:
+                </div>
+                  <input ng-model="nft2.token_address" class="col-8 rounded-3 form-control w-50" type="text">
+              </div>
+              <div class="row justify-content-center my-2">
+                <div class="col-2 align-self-center">
+                  Name:
+                </div>
+                  <input ng-model="nft2.name" class="col-8 rounded-3 form-control w-50" type="text">
+              </div>
+              <div class="row justify-content-center my-2">
+                <div class="col-2 align-self-center">
+                  Symbol:
+                </div>
+                  <input ng-model="nft2.symbol" class="col-8 rounded-3 form-control w-50" type="text">
+              </div>
+              <div class="row justify-content-center my-2">
+                <div class="col-2 align-self-center">
+                  description:
+                </div>
+                  <input ng-model="nft2.description" class="col-8 rounded-3 form-control w-50" type="text">
+              </div>
+              <div class="row justify-content-center my-2">
+                <div class="col-2 align-self-center">
+                  Royalty:
+                </div>
+                  <input ng-model="nft2.royalty" class="col-8 rounded-3 form-control w-50" type="text">
+              </div>
+              <div class="row justify-content-center my-2">
+                <div class="col-2 align-self-center">
+                  File:
+                </div>
+                  <input id="fileinput2" class="col-8 rounded-3 form-control-file w-50" type="file">
+              </div>
+            </div>
+            <div class="card-footer text-center">
+              <button class="btn btn-primary fw-bolder rounded-4 " ng-click="update_nft()">Update</button>
+            </div>
+          </div>
+          
+          <div class="card my-3 bg-dark text-white ">
+            <div class="card-header text-center h1 fw-bolder text-decoration-underline">
+              Delete NFT
+            </div>
+              <div class="card-body ">
+              <div class="row justify-content-center my-2">
+                <div class="col-2 align-self-center">
+                  Token Address:
+                </div>
+                  <input ng-model="nft3.token_address" class="col-8 rounded-3 form-control w-50" type="text">
+              </div>
+              
+            </div>
+            <div class="card-footer text-center">
+              <button class="btn btn-primary fw-bolder rounded-4 " ng-click="delete_nft()">Delete</button>
+            </div>
+          </div>
+
+          <div class="card my-3 bg-dark text-white ">
+            <div class="card-header text-center h1 fw-bolder text-decoration-underline">
+              Transfer NFT
+            </div>
+              <div class="card-body ">
+              <div class="row justify-content-center my-2">
+                <div class="col-2 align-self-center">
+                  Token Address:
+                </div>
+                  <input ng-model="nft4.token_address" class="col-8 rounded-3 form-control w-50" type="text">
+              </div>
+              <div class="row justify-content-center my-2">
+                <div class="col-2 align-self-center">
+                  To Wallet:
+                </div>
+                  <input ng-model="nft4.to_address" class="col-8 rounded-3 form-control w-50" type="text">
+              </div>
+            </div>
+            <div class="card-footer text-center">
+              <button class="btn btn-primary fw-bolder rounded-4 " ng-click="transfer_nft()">Transfer</button>
+            </div>
+          </div>
+
+          <!-- <div class="card my-3 bg-dark text-white ">
+            <div class="card-header text-center h1 fw-bolder text-decoration-underline">
+              Sell NFT
+            </div>
+              <div class="card-body ">
+              <div class="row justify-content-center my-2">
+                <div class="col-2 align-self-center">
+                  Token Address:
+                </div>
+                  <input ng-model="nft3.token_address" class="col-8 rounded-3 form-control w-50" type="text">
+              </div>
+              
+            </div>
+            <div class="card-footer text-center">
+              <button class="btn btn-primary fw-bolder rounded-4 " ng-click="sell_nft()">sell</button>
+            </div>
+          </div> -->
 
         </div>
       </div>
     </div>
   </div>
   
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <p>Copyright © 2036 <a href="#">Cyborg Gaming</a> Company. All rights reserved. 
-          
-          <br>Design: <a href="https://templatemo.com" target="_blank" title="free CSS templates">TemplateMo</a></p>
-        </div>
-      </div>
-    </div>
-  </footer>
 
 
   <!-- Scripts -->
